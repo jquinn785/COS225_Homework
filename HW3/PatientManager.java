@@ -11,11 +11,21 @@ public class PatientManager {
     }
 
     public Patient removePatient(int index){
-        return patients.get(index);
+        return patients.remove(index);
+    }
+
+    public int findHighestPatient(){
+        Patient highestPatient = patients.get(0);
+        for(int i = 0; i < patients.size(); i++){
+            if (patients.get(i).getCaffeineLevel() > highestPatient.getCaffeineLevel()){
+                highestPatient = patients.get(i);
+            }
+        }
+        return patients.indexOf(highestPatient);
     }
 
     public void caffeineAbsorption(){
-        for (int i = 0; i < patients.size(); i++){
+        for (int i = patients.size() - 1; i >= 0; i--){
 
             if (patients.get(i).getCaffeineLevel() > 160){
                 patients.get(i).setCaffeineLevel(patients.get(i).getCaffeineLevel() - 160);

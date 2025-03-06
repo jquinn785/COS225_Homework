@@ -1,5 +1,5 @@
 public class GroveTester {
-    public void main(){
+    public static void main(String[] args){
         Grove grove1 = new Grove("Grove 1", 16);
         System.out.println(grove1);
 

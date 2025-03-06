@@ -1,5 +1,5 @@
 public class ParkingTester {
-    public void main() {
+    public static void main(String[] args) {
         ParkingLot parkingLot1 = new ParkingLot(8, 2);
         System.out.println(parkingLot1);
         

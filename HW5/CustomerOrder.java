@@ -17,7 +17,12 @@ public class CustomerOrder {
 
     public void shipProduct() {
         if (quantity > 0) {
-            quantity =- 1;
+            quantity -= 1;
         }
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
 }

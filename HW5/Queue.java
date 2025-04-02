@@ -4,7 +4,7 @@ public interface Queue<T> {
 	
 	public T dequeue();
 	
-	public T peek();
+	// public T peek();
 	
 	public boolean isEmpty();
 	

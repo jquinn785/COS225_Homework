@@ -4,7 +4,7 @@ public class OrderQueue {
 
     public OrderQueue() {
         linkedQueue = new LinkedQueue<>();
-        stock = 0;
+        this.stock = 0;
     }
 
     public OrderQueue(int stock) {

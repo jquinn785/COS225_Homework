@@ -3,12 +3,12 @@ public class OrderQueue {
     public int stock;
 
     public OrderQueue() {
-        linkedQueue = new LinkedQueue<>();
+        linkedQueue = new LinkedQueue<CustomerOrder>();
         this.stock = 0;
     }
 
     public OrderQueue(int stock) {
-        linkedQueue = new LinkedQueue<>();
+        linkedQueue = new LinkedQueue<CustomerOrder>();
         this.stock = stock;
     }
 

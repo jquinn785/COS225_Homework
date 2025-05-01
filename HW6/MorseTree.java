@@ -1,16 +1,32 @@
-public class MorseTree {
+public class MorseTree extends TreeNode<Character> {
     public TreeNode<Character> root;
 
     public MorseTree(){
-        root = null;
+        this.root = new TreeNode<>(null);
     }
 
-    public String preOrder(TreeNode<Character> root){
-
+    // Uses the structure of the preorder function from TreeNode.java
+    public String preOrder(TreeNode<Character> node){
+        String outStr = "";
+        if (node == null) {
+            return "";
+        }
+        outStr += node.getElement() + " ";
+        outStr += preOrder(node.getLeft());
+        outStr += preOrder(node.getRight());
+        return outStr;
     }
 
-    public String postOrder(TreeNode<Character> root){
-
+    // Uses the structure of the postorder function from TreeNode.java
+    public String postOrder(TreeNode<Character> node){
+        String outStr = "";
+        if (node == null) {
+            return "";
+        }
+        outStr += postOrder(node.getLeft());
+        outStr += postOrder(node.getRight());
+        outStr += node.getElement() + " ";
+        return outStr;
     }
 
     public String englishToMorse(){
@@ -18,6 +34,6 @@ public class MorseTree {
     }
 
     public String morseToEnglish(){
-        
+
     }
 }

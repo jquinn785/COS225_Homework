@@ -1,5 +1,8 @@
-public class MorseTree extends TreeNode<Character> {
+public class MorseTree {
     public TreeNode<Character> root;
+    public String[] map = {
+        "e", "o", "t", "-", "i", "o o", "a", "o -", "n", "- o", "m", "- -", "s", "o o o", "u", "o o -", "r", "o - o", "w", "o - -", "d", "- o o", "k", "- o -", "g", "- - o", "o", "- - -", "h", "o o o o", "v", "o o o -", "f", "o o - o", "l", "o - o o", "p", "o - - o", "j", "o - - -", "b", "- o o o", "x", "- o o -", "c", "- o - o", "y", "- o - -", "z", "- - o o", "q", "- - o -"
+    };
 
     public MorseTree(){
         this.root = new TreeNode<>(null);
@@ -29,11 +32,24 @@ public class MorseTree extends TreeNode<Character> {
         return outStr;
     }
 
-    public String englishToMorse(){
-
+    public String englishToMorse(String english){
+        String outStr = "";
+        english = english.replaceAll("\\s", "");
+        for (int i = 0; i < english.length(); i++){
+            char ch = english.charAt(i);
+            for (int j = 0; j < map.length; j += 2) {
+                if (ch == j) {
+                    outStr += map[j + 1] + " | ";
+                }
+            }
+        }
+        return outStr;
     }
 
-    public String morseToEnglish(){
-
+    public String morseToEnglish(String morse){
+        String outStr = "";
+        for (int i = 0; i < morse.length(); i++){
+            
+        }
     }
 }

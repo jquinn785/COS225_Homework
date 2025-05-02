@@ -1,4 +1,4 @@
-public class MorseTree {
+public class MorseTree{
     public TreeNode<Character> root;
     public String[] map = {
         "e", "o", "t", "-", "i", "o o", "a", "o -", "n", "- o", "m", "- -", "s", "o o o", "u", "o o -", "r", "o - o", "w", "o - -", "d", "- o o", "k", "- o -", "g", "- - o", "o", "- - -", "h", "o o o o", "v", "o o o -", "f", "o o - o", "l", "o - o o", "p", "o - - o", "j", "o - - -", "b", "- o o o", "x", "- o o -", "c", "- o - o", "y", "- o - -", "z", "- - o o", "q", "- - o -"
@@ -34,11 +34,12 @@ public class MorseTree {
 
     public String englishToMorse(String english){
         String outStr = "";
+        english = english.toLowerCase();
         english = english.replaceAll("\\s", "");
         for (int i = 0; i < english.length(); i++){
             char ch = english.charAt(i);
             for (int j = 0; j < map.length; j += 2) {
-                if (ch == j) {
+                if (ch == map[j].charAt(0)) {
                     outStr += map[j + 1] + " | ";
                 }
             }
@@ -48,8 +49,14 @@ public class MorseTree {
 
     public String morseToEnglish(String morse){
         String outStr = "";
-        for (int i = 0; i < morse.length(); i++){
-            
+        String[] morseSegments = morse.split(" \\| ");
+        for (int i = 0; i < morseSegments.length; i++) {
+            for (int j = 1; j < map.length; j += 2){
+                if (morseSegments[i].equals(map[j])){
+                    outStr += map[j - 1];
+                }
+            }
         }
+        return outStr;
     }
-}
+}  
